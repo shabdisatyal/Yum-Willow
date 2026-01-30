@@ -2,7 +2,7 @@ from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
-from helpers import login_required
+from project.helpers import login_required
 
 app = Flask(__name__)
 
@@ -23,7 +23,7 @@ def after_request(response):
 
 @app.route("/")
 def dash():
-    
+
     return render_template("home.html")
 
 
@@ -32,7 +32,7 @@ def dash():
 @app.route("/home")
 @login_required
 def index():
-    
+
     user = db.execute("SELECT username FROM users WHERE id = ?", session["user_id"])
     username = user[0]["username"]
     recipes = db.execute("SELECT recipes.*, users.username FROM recipes JOIN users ON recipes.user_id = users.id ORDER BY recipes.id DESC")
@@ -105,10 +105,10 @@ def recipe(recipe_id):
     recipe = db.execute("SELECT recipes.*, users.username FROM recipes JOIN users ON recipes.user_id = users.id WHERE recipes.id = ?", recipe_id)
     if not recipe:
         return redirect("/")
-    
+
     ingredients = db.execute("SELECT * FROM ingredients WHERE recipe_id = ?", recipe_id)
     instructions = db.execute("SELECT * FROM instructions WHERE recipe_id = ? ORDER BY step_number", recipe_id)
-    
+
     return render_template("recipe.html", recipe=recipe[0], ingredients=ingredients, instructions=instructions)
 
 
@@ -152,7 +152,7 @@ def edit(recipe_id):
     recipe = db.execute("SELECT * FROM recipes WHERE id = ? AND user_id = ?", recipe_id, session["user_id"])
     if not recipe:
         return redirect("/")
-    
+
     if request.method == "POST":
         title = request.form.get("title")
         description = request.form.get("description")
