@@ -34,7 +34,7 @@ Defines the database structure with four tables:
 - **users**: Stores id, username (unique), and password hash
 - **recipes**: Stores id, user_id (foreign key), title, description, prep_time, cook_time, and servings
 - **ingredients**: Stores id, recipe_id (foreign key), ingredient name, and amount. Uses ON DELETE CASCADE to automatically remove ingredients when their recipe is deleted
-- **instructions**: Stores id, recipe_id (foreign key), step_number, and instruction text. 
+- **instructions**: Stores id, recipe_id (foreign key), step_number, and instruction text.
 
 Foreign key relationships ensure data integrity between users and recipes, and between recipes and their ingredients/instructions.
 
@@ -85,4 +85,9 @@ The layout gives a "tablecloth" and recipe book feeling, creating an interface t
 
 ### Studio Ghibli Aesthetic
 
-The warm, nostalgic design creates an inviting atmosphere that makes recipe browsing feel comforting rather than clinical. 
+The warm, nostalgic design creates an inviting atmosphere that makes recipe browsing feel comforting rather than clinical.
+
+
+### Video Demo Link
+
+
