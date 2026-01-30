@@ -85,4 +85,4 @@ The layout gives a "tablecloth" and recipe book feeling, creating an interface t
 
 ### Studio Ghibli Aesthetic
 
-The warm, nostalgic design creates an inviting atmosphere that makes recipe browsing feel comforting rather than clinical. Food is about community and comfort, and the interface reflects that philosophy.
+The warm, nostalgic design creates an inviting atmosphere that makes recipe browsing feel comforting rather than clinical. 
