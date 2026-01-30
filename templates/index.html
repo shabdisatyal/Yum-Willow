@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Willow's Recipes for {{ username }}</h1>
+    
+    <div class="recipe-grid">
+        {% for recipe in recipes %}
+        <div class="recipe-card">
+            <h3><a href="/recipe/{{ recipe.id }}">{{ recipe.title }}</a></h3>
+            <p>{{ recipe.description }}</p>
+            <p><small>By {{ recipe.username }}</small></p>
+            {% if recipe.prep_time %}
+                <p>Prep: {{ recipe.prep_time }} min</p>
+            {% endif %}
+            {% if recipe.servings %}
+                <p>Servings: {{ recipe.servings }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

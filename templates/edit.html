@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form method="post">
+    <h2>Edit Recipe</h2>
+    
+    <div class="form-group">
+        <label>Title</label>
+        <input type="text" name="title" value="{{ recipe.title }}" required>
+    </div>
+    
+    <div class="form-group">
+        <label>Description</label>
+        <textarea name="description">{{ recipe.description }}</textarea>
+    </div>
+    
+    <div class="form-group">
+        <label>Prep Time (minutes)</label>
+        <input type="number" name="prep_time" value="{{ recipe.prep_time }}">
+    </div>
+    
+    <div class="form-group">
+        <label>Cook Time (minutes)</label>
+        <input type="number" name="cook_time" value="{{ recipe.cook_time }}">
+    </div>
+    
+    <div class="form-group">
+        <label>Servings</label>
+        <input type="number" name="servings" value="{{ recipe.servings }}">
+    </div>
+    
+    <h3>Ingredients</h3>
+    <div id="ingredients">
+        {% for ingredient in ingredients %}
+        <div class="ingredient-row">
+            <input type="text" name="ingredient_name" value="{{ ingredient.name }}" placeholder="Name">
+            <input type="text" name="ingredient_amount" value="{{ ingredient.amount }}" placeholder="Amount">
+        </div>
+        {% endfor %}
+    </div>
+    <button type="button" class="btn-secondary" onclick="addIngredient()">Add Ingredient</button>
+    
+    <h3>Instructions</h3>
+    <div id="instructions">
+        {% for instruction in instructions %}
+        <textarea name="instruction">{{ instruction.text }}</textarea>
+        {% endfor %}
+    </div>
+    <button type="button" class="btn-secondary" onclick="addInstruction()">Add Step</button>
+    
+    <br><br>
+    <button type="submit" class="btn">Update Recipe</button>
+</form>
+
+<script>
+//This adds Ingredient space manually as we click on add ingredients 
+function addIngredient() {
+    var div = document.createElement('div');
+    div.className = 'ingredient-row';
+    div.innerHTML = '<input type="text" name="ingredient_name" placeholder="Name"><input type="text" name="ingredient_amount" placeholder="Amount">';
+    document.getElementById('ingredients').appendChild(div);
+}
+
+//This does the same but for instructions
+function addInstruction() {
+    var textarea = document.createElement('textarea');
+    textarea.name = 'instruction';
+    textarea.placeholder = 'Next step';
+    document.getElementById('instructions').appendChild(textarea);
+}
+</script>
+{% endblock %}

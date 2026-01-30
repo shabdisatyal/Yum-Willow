@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<form method="post">
+    <h2>Add Recipe</h2>
+    
+    <div class="form-group">
+        <label for="title">Recipe Title:</label>
+        <input type="text" id="title" name="title" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="description">Yum!! Describe!!</label>
+        <textarea id="description" name="description"></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label for="prep_time">Preparation Time (minutes):</label>
+        <input type="number" id="prep_time" name="prep_time">
+    </div>
+    
+    <div class="form-group">
+        <label for="cook_time">Cooking Time (minutes):</label>
+        <input type="number" id="cook_time" name="cook_time">
+    </div>
+    
+    <div class="form-group">
+        <label for="servings">Servings:</label>
+        <input type="number" id="servings" name="servings">
+    </div>
+    
+    <h3>Ingredients</h3>
+    <div id="ingredients">
+        <div class="ingredient-row">
+            <input type="text" name="ingredient_name" placeholder="Name">
+            <input type="text" name="ingredient_amount" placeholder="Amount">
+        </div>
+    </div>
+    <button type="button" onclick="addIngredient()" class="btn-secondary">Add Ingredient</button>
+    
+    <h3>Instructions</h3>
+    <div id="instructions">
+        <textarea name="instruction" placeholder="Step 1"></textarea>
+    </div>
+    <button type="button" onclick="addInstruction()" class="btn-secondary">Add Step</button>
+    
+    <br><br>
+    <button type="submit" class="btn">Save Recipe</button>
+</form>
+
+<script>
+function addIngredient() {
+    var div = document.createElement('div');
+    div.className = 'ingredient-row';
+    div.innerHTML = '<input type="text" name="ingredient_name" placeholder="Name"><input type="text" name="ingredient_amount" placeholder="Amount">';
+    document.getElementById('ingredients').appendChild(div);
+}
+
+function addInstruction() {
+    var textarea = document.createElement('textarea');
+    textarea.name = 'instruction';
+    textarea.placeholder = 'Next step';
+    document.getElementById('instructions').appendChild(textarea);
+}
+</script>
+{% endblock %}

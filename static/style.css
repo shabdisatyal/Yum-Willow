@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.schoolbell-regular {
+  font-family: "Schoolbell", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+    font-family: "Schoolbell";
+    background:url('https://i.pinimg.com/736x/62/d4/bf/62d4bf22091ced827ea735d358da9006.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter:blur(5px);
+    color: #251204;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: "Schoolbell";
+    text-align: center;
+    padding-top: 10vh;
+}
+
+nav {
+    background:url('https://i.pinimg.com/736x/45/d9/a6/45d9a6bb58f615f8edd710dd76757d4e.jpg');
+    padding: 1rem 2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    padding-bottom: 4rem;
+    border-radius: 10px;
+    background: rgb(27, 19, 2);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(255, 255, 255);
+    min-height: fit-content;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+}
+
+.recipe-card {
+    background: transparent;
+    padding: 1.5rem;
+    border-radius: 18px;
+    margin-bottom: 2vh;
+    text-decoration: none;
+}
+
+.recipe-card h3 a {
+    color: #e9b950;
+    text-decoration: none;
+}
+
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    padding-bottom: 3rem;
+    border-radius: 35px;
+    background: #311e064e;
+}
+
+h2, h3 {
+    font-family: "Schoolbell";
+    color: #311e06;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+label {
+    min-width: 180px;
+    flex-shrink: 0;
+    font-family: "Schoolbell";
+    color: #311e06;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+input, textarea, select {
+    flex: 1;
+    font-family: "Schoolbell";
+    padding: 1rem;
+    border: none;
+    color: #311e06;
+    font-size: larger;
+    background: rgb(255, 215, 151);
+    border-radius: 35px;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+    font-family: "Schoolbell";
+}
+
+/* Ingredient rows */
+.ingredient-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.ingredient-row input {
+    flex: 1;
+}
+
+/* Instructions */
+#instructions textarea {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+/* Buttons - CONSOLIDATED */
+.btn, .btn-secondary {
+    font-family: "Schoolbell";
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    background: url('https://i.pinimg.com/736x/45/d9/a6/45d9a6bb58f615f8edd710dd76757d4e.jpg');
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn {
+    color: white;
+    display: block;
+    margin: 1rem auto 2rem auto;
+    width: auto;
+    max-width: 30vw;
+}
+
+.btn-secondary {
+    color: #ffffff;
+    margin: 0.5rem 0;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: #311e06;
+    transform: scale(1.05);
+}
+
+.btn-secondary:hover {
+    background: #311e06;
+}
+
+/* Login and Register form specific styles */
+.login-form,
+.register-form {
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    border-radius: 35px;
+    background: #311e06;
+    text-align: center;
+}
+
+.login-form h2,
+.register-form h2 {
+    font-family: "Schoolbell";
+    color: #ffffff;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.login-form .form-group,
+.register-form .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.login-form label,
+.register-form label {
+    min-width: auto;
+    text-align: left;
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+}
+
+.login-form input,
+.register-form input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    color: #ffffff;
+    font-size: 1rem;
+    background: rgb(255, 215, 151);
+    border-radius: 35px;
+}
+
+.login-form .btn,
+.register-form .btn {
+    width: 100%;
+    margin-top: 1rem;
+    max-width: none;
+}
+
+.flash {
+    padding: 1rem;
+    margin: 1rem 2rem;
+    border-radius: 5px;
+    background: none;
+    color: #ffffff;
+}

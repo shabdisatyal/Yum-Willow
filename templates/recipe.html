@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ recipe.title }}</h1>
+    <p>By {{ recipe.username }}</p>
+    
+    {% if recipe.description %}
+        <p>{{ recipe.description }}</p>
+    {% endif %}
+    
+    <div>
+        {% if recipe.prep_time %}
+            <p><strong>Prep Time:</strong> {{ recipe.prep_time }} min</p>
+        {% endif %}
+        {% if recipe.cook_time %}
+            <p><strong>Cook Time:</strong> {{ recipe.cook_time }} min</p>
+        {% endif %}
+        {% if recipe.servings %}
+            <p><strong>Servings:</strong> {{ recipe.servings }}</p>
+        {% endif %}
+    </div>
+    
+    <h2>Ingredients</h2>
+    <ul>
+        {% for ingredient in ingredients %}
+            <li>{{ ingredient.amount }} {{ ingredient.name }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Instructions</h2>
+    <ol>
+        {% for instruction in instructions %}
+            <li>{{ instruction.text }}</li>
+        {% endfor %}
+    </ol>
+    
+    {% if session.user_id == recipe.user_id %}
+        <a href="/edit/{{ recipe.id }}" class="btn">Edit</a>
+        <a href="/delete/{{ recipe.id }}" onclick= "return confirm('Aww, do you wanna delete the recipe ?')" class="btn">Delete</a>
+
+           
+        
+    {% endif %}
+</div>
+{% endblock %}
